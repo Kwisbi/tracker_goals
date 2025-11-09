@@ -1,0 +1,250 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.info-text {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+hr {
+    width: 90%;
+    max-width: 600px;
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+/* --- Стили для Общего Мониторинга (Главная страница) --- */
+
+.site-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 25px;
+    width: 90%;
+    max-width: 600px; /* Карточки чуть шире */
+}
+
+.site-title {
+    margin-top: 0;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.progress-info {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.balance-value {
+    font-weight: bold;
+    color: #007bff; /* Цвет для текущего баланса на главной */
+}
+
+.target-value {
+    color: #6c757d;
+}
+
+/* Общий прогресс-бар */
+.progress-bar-shell {
+    width: 100%;
+    background-color: #e9ecef;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px 0 20px 0;
+}
+
+.large-bar {
+    height: 30px; /* Большие бары для главной цели */
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    font-weight: bold;
+    padding-right: 10px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+}
+
+.general-fill {
+    background: linear-gradient(to right, #007bff, #0056b3); /* Общая цель - синий */
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.input-group button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.input-group button:hover {
+    background-color: #1e7e34;
+}
+
+/* --- Стили для кнопки открытия модального окна --- */
+#openGoalsModal {
+    margin: 20px auto;
+    padding: 12px 25px;
+    background-color: #ffc107; /* Желтый цвет, чтобы выделялось */
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+#openGoalsModal:hover {
+    background-color: #d39e00;
+}
+
+
+/* --- Стили для Модального Окна (Виджета Ежедневных Целей) --- */
+
+.modal-overlay {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Темный полупрозрачный фон */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    padding-top: 40px; /* ИСПРАВЛЕНИЕ: Отступ сверху для кнопки закрытия */
+    border-radius: 10px;
+    width: 80%;
+    max-width: 700px;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute; /* Позиционируем абсолютно */
+    top: 10px;        /* Сверху */
+    right: 15px;      /* Справа */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+}
+
+.modal-warning {
+    color: #dc3545;
+    font-style: italic;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.goal-card {
+    margin-bottom: 15px;
+    border: 1px dashed #ccc;
+    padding: 15px;
+    box-shadow: none;
+}
+
+.site-title-small {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.2em;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.goal-section h4 {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #555;
+}
+
+.small-bar {
+    height: 15px; /* Уменьшаем высоту для двух баров целей */
+    margin: 5px 0 10px 0;
+}
+
+/* Цвета для разных типов прогресса в виджете */
+.rub-fill {
+    background: linear-gradient(to right, #4CAF50, #28a745); /* Зеленый для дневного заработка */
+}
+
+.tasks-fill {
+    background: linear-gradient(to right, #ff8c00, #ff6600); /* Оранжевый для заданий */
+}
+
+.input-group-modal {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.input-group-modal input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.input-group-modal button {
+    padding: 8px 15px;
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.input-group-modal button:hover {
+    background-color: #cc6600;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Общий Мониторинг Заработка</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>💰 Общий Прогресс Заработка (Цель: 500 ₽)</h1>
+    <p class="info-text">Введите текущий баланс для каждого сайта. Данные сохраняются локально.</p>
+
+    <button id="openGoalsModal">Открыть Виджет Дневных Целей 🎯</button>
+    <hr>
+    
+    <div class="site-card general-card" id="unu">
+        <h2 class="site-title">1. UNU.IM</h2>
+        
+        <div class="progress-info">
+            Текущий баланс: <span id="balance-unu" class="balance-value">0.00</span> ₽ 
+            (Общая Цель: <span id="target-unu" class="target-value">500</span> ₽)
+        </div>
+        <div class="progress-bar-shell large-bar">
+            <div id="fill-unu" class="progress-bar-fill general-fill"></div>
+        </div>
+        
+        <div class="input-group">
+            <input type="number" id="input-unu" placeholder="Введите новый баланс">
+            <button onclick="updateGeneralBalance('unu')">Обновить Баланс</button>
+        </div>
+    </div>
+    
+    <div class="site-card general-card" id="aviso">
+        <h2 class="site-title">2. AVISO.BIZ</h2>
+        
+        <div class="progress-info">
+            Текущий баланс: <span id="balance-aviso" class="balance-value">0.00</span> ₽ 
+            (Общая Цель: <span id="target-aviso" class="target-value">500</span> ₽)
+        </div>
+        <div class="progress-bar-shell large-bar">
+            <div id="fill-aviso" class="progress-bar-fill general-fill"></div>
+        </div>
+        
+        <div class="input-group">
+            <input type="number" id="input-aviso" placeholder="Введите новый баланс">
+            <button onclick="updateGeneralBalance('aviso')">Обновить Баланс</button>
+        </div>
+    </div>
+
+    <div class="site-card general-card" id="socpublic">
+        <h2 class="site-title">3. SOCPUBLIC.COM</h2>
+        
+        <div class="progress-info">
+            Текущий баланс: <span id="balance-socpublic" class="balance-value">0.00</span> ₽ 
+            (Общая Цель: <span id="target-socpublic" class="target-value">500</span> ₽)
+        </div>
+        <div class="progress-bar-shell large-bar">
+            <div id="fill-socpublic" class="progress-bar-fill general-fill"></div>
+        </div>
+        
+        <div class="input-group">
+            <input type="number" id="input-socpublic" placeholder="Введите новый баланс">
+            <button onclick="updateGeneralBalance('socpublic')">Обновить Баланс</button>
+        </div>
+    </div>
+    <div id="goalsModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" id="closeGoalsModal">&times;</span>
+        <h2>🎯 Ежедневные Цели (Обновляются каждый день)</h2>
+        <p class="modal-warning">Прогресс по заданиям и заработку сбрасывается в полночь, а цели генерируются заново.</p>
+
+        <div class="site-card goal-card" id="unu-goal">
+            <h3 class="site-title-small">UNU.IM</h3>
+            
+            <div class="goal-section">
+                <h4>Заработано: <span id="progress-rub-unu">0.00</span> ₽ / <span id="goal-rub-unu">0.00</span> ₽</h4>
+                <div class="progress-bar-shell small-bar">
+                    <div id="fill-rub-unu" class="progress-bar-fill rub-fill"></div>
+                </div>
+                
+                <h4>Заданий: <span id="progress-tasks-unu">0</span> / <span id="goal-tasks-unu">0</span></h4>
+                <div class="progress-bar-shell small-bar">
+                    <div id="fill-tasks-unu" class="progress-bar-fill tasks-fill"></div>
+                </div>
+            </div>
+            
+            <div class="input-group-modal">
+                <input type="number" id="input-tasks-unu" placeholder="Выполнено заданий">
+                <button onclick="updateDailyProgress('tasks', 'unu')">Задания +</button>
+            </div>
+            
+            <div class="input-group-modal">
+                <input type="number" id="input-rub-unu" placeholder="Заработано сегодня">
+                <button onclick="updateDailyProgress('rub', 'unu')">Заработок +</button>
+            </div>
+        </div>
+
+        <div class="site-card goal-card" id="aviso-goal">
+            <h3 class="site-title-small">AVISO.BIZ</h3>
+            
+            <div class="goal-section">
+                <h4>Заработано: <span id="progress-rub-aviso">0.00</span> ₽ / <span id="goal-rub-aviso">0.00</span> ₽</h4>
+                <div class="progress-bar-shell small-bar">
+                    <div id="fill-rub-aviso" class="progress-bar-fill rub-fill"></div>
+                </div>
+                
+                <h4>Заданий: <span id="progress-tasks-aviso">0</span> / <span id="goal-tasks-aviso">0</span></h4>
+                <div class="progress-bar-shell small-bar">
+                    <div id="fill-tasks-aviso" class="progress-bar-fill tasks-fill"></div>
+                </div>
+            </div>
+            
+            <div class="input-group-modal">
+                <input type="number" id="input-tasks-aviso" placeholder="Выполнено заданий">
+                <button onclick="updateDailyProgress('tasks', 'aviso')">Задания +</button>
+            </div>
+            
+            <div class="input-group-modal">
+                <input type="number" id="input-rub-aviso" placeholder="Заработано сегодня">
+                <button onclick="updateDailyProgress('rub', 'aviso')">Заработок +</button>
+            </div>
+        </div>
+        
+        <div class="site-card goal-card" id="socpublic-goal">
+            <h3 class="site-title-small">SOCPUBLIC.COM</h3>
+            
+            <div class="goal-section">
+                <h4>Заработано: <span id="progress-rub-socpublic">0.00</span> ₽ / <span id="goal-rub-socpublic">0.00</span> ₽</h4>
+                <div class="progress-bar-shell small-bar">
+                    <div id="fill-rub-socpublic" class="progress-bar-fill rub-fill"></div>
+                </div>
+                
+                <h4>Заданий: <span id="progress-tasks-socpublic">0</span> / <span id="goal-tasks-socpublic">0</span></h4>
+                <div class="progress-bar-shell small-bar">
+                    <div id="fill-tasks-socpublic" class="progress-bar-fill tasks-fill"></div>
+                </div>
+            </div>
+            
+            <div class="input-group-modal">
+                <input type="number" id="input-tasks-socpublic" placeholder="Выполнено заданий">
+                <button onclick="updateDailyProgress('tasks', 'socpublic')">Задания +</button>
+            </div>
+            
+            <div class="input-group-modal">
+                <input type="number" id="input-rub-socpublic" placeholder="Заработано сегодня">
+                <button onclick="updateDailyProgress('rub', 'socpublic')">Заработок +</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
